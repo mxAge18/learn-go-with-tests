@@ -40,7 +40,3 @@ func dfs(numsMap map[string]string, res *[]string, digits string, index int, str
         }
 	}
 }
-
-func main() {
-	LetterCombinations("23")
-}
