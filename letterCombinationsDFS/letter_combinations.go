@@ -7,16 +7,16 @@ func LetterCombinations(digits string) []string {
         return []string{}
     }
 	// 外部定义电话号和string的映射关系，用map[string][string]
-var numsMap map[string]string = map[string]string {
-	"2": "abc",
-	"3": "def",
-	"4": "ghi",
-	"5": "jkl",
-	"6": "mno",
-	"7": "pqrs",
-	"8": "tuv",
-	"9": "wxyz",
-}
+	var numsMap map[string]string = map[string]string {
+		"2": "abc",
+		"3": "def",
+		"4": "ghi",
+		"5": "jkl",
+		"6": "mno",
+		"7": "pqrs",
+		"8": "tuv",
+		"9": "wxyz",
+	}
 
 	// 定义要返回的结果
 	var res []string
@@ -27,7 +27,8 @@ var numsMap map[string]string = map[string]string {
     return res
 }
 
-
+// res 需要传二级指针，因为发生扩容后，函数里的slice新生成的一个数组，
+// 所以这里slice的地址就变化了，原函数的指针指的数组还是原数组
 func dfs(numsMap map[string]string, res *[]string, digits string, index int, str string) {
 	if len(digits) == index {
 		*res = append(*res, str)
